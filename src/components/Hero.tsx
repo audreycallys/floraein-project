@@ -35,18 +35,12 @@ function Hero() {
         </button>
       </div>
 
-      <div className="relative">
+      <div>
         <img
           src="/images/hero-flower.jpg"
           alt="Beautiful floral arrangement"
           className="aspect-[4/3] w-full rounded-2xl object-cover"
         />
-
-        <div className="absolute right-5 bottom-5 text-right font-heading text-base italic text-white drop-shadow-md">
-          Seasonal arrangements
-          <br />
-          made with feeling
-        </div>
       </div>
     </section>
   );
