@@ -1,11 +1,13 @@
-import { ShoppingBag } from "lucide-react";
+import { ShoppingBag, Check } from "lucide-react";
 import type { Product } from "../data/products";
 
 type ProductCardProps = {
   product: Product;
+  isAdded: boolean;
+  onAddToCart: () => void;
 };
 
-function ProductCard({ product }: ProductCardProps) {
+function ProductCard({ product, isAdded, onAddToCart }: ProductCardProps) {
   return (
     <div className="group">
       {/* Product Image */}
@@ -30,10 +32,25 @@ function ProductCard({ product }: ProductCardProps) {
         {/* Add to Cart Button */}
         <button
           type="button"
-          className="mt-3 flex w-full items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-primary-hover"
+          onClick={onAddToCart}
+          disabled={isAdded}
+          className={`mt-3 flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-medium transition-colors ${
+            isAdded
+              ? "cursor-default bg-primary-light text-primary"
+              : "bg-primary text-white hover:bg-primary-hover"
+          }`}
         >
-          <ShoppingBag size={17} />
-          Add to Cart
+          {isAdded ? (
+            <>
+              <Check size={17} />
+              Added
+            </>
+          ) : (
+            <>
+              <ShoppingBag size={17} />
+              Add to Cart
+            </>
+          )}
         </button>
       </div>
     </div>

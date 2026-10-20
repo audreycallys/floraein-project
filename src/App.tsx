@@ -1,9 +1,25 @@
+import { useState } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import ProductCard from "./components/ProductCard";
 import { products } from "./data/products";
+import type { Product } from "./data/products";
 
 function App() {
+  // Menyimpan produk yang ditambahkan ke keranjang
+  const [cart, setCart] = useState<Product[]>([]);
+
+  // Menambahkan produk ke keranjang
+  const addToCart = (product: Product) => {
+    setCart((prevCart) => {
+      if (prevCart.some((item) => item.id === product.id)) {
+        return prevCart;
+      }
+
+      return [...prevCart, product];
+    });
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -31,7 +47,12 @@ function App() {
           {/* Product Grid */}
           <div className="grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-4">
             {products.map((product) => (
-              <ProductCard key={product.id} product={product} />
+              <ProductCard
+                key={product.id}
+                product={product}
+                isAdded={cart.some((item) => item.id === product.id)}
+                onAddToCart={() => addToCart(product)}
+              />
             ))}
           </div>
         </section>
