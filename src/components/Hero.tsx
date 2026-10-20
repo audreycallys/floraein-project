@@ -15,7 +15,10 @@ function Hero() {
   ];
 
   return (
-    <section id="home" className="w-full overflow-hidden bg-white">
+    <section
+      id="home"
+      className="flex min-h-[calc(100svh-80px)] w-full flex-col overflow-hidden bg-white"
+    >
       {/* Hero Content */}
       <div className="relative z-10 mx-auto max-w-7xl px-6 pt-14 text-center sm:pt-16">
         <p className="mb-5 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
@@ -69,7 +72,7 @@ function Hero() {
         />
 
         {/* Flower Gallery */}
-        <div className="relative z-10 mx-auto grid max-w-6xl grid-cols-2 gap-5 px-6 sm:flex sm:justify-center sm:gap-9">
+        <div className="relative z-10 mx-auto grid max-w-6xl grid-cols-2 gap-5 px-6 sm:flex sm:justify-center sm:gap-9 sm:translate-y-8">
           {flowers.map((flower) => (
             <div
               key={flower.image}
