@@ -14,9 +14,17 @@ function Navbar() {
         <button
           type="button"
           onClick={() => scrollToSection("home")}
-          className="justify-self-start text-sm font-bold tracking-[0.2em] text-foreground"
+          className="flex items-center gap-4 justify-self-start"
         >
-          FLORAEIN
+          <img
+            src="/images/logo.png"
+            alt="FLORAEIN Logo"
+            className="h-9 w-9 object-contain"
+          />
+
+          <span className="text-sm font-bold tracking-[0.15em] text-foreground">
+            FLORAEIN
+          </span>
         </button>
 
         {/* Navigation */}
