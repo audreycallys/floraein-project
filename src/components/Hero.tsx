@@ -76,7 +76,7 @@ function Hero() {
               className="group relative min-w-0 overflow-hidden rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-xl sm:w-[210px] sm:shrink-0"
             >
               <img
-                src={`/images/${flower.image}`}
+                src={`/images/flowers/${flower.image}`}
                 alt={flower.name}
                 className="aspect-[3/4] w-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
