@@ -2,17 +2,23 @@ import { useState } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import ProductCard from "./components/ProductCard";
+import Cart from "./components/Cart";
 import { products } from "./data/products";
 import type { Product } from "./data/products";
 
 function App() {
-  // Menyimpan produk yang ditambahkan ke keranjang
+  // State keranjang
   const [cart, setCart] = useState<Product[]>([]);
+
+  // State untuk membuka dan menutup panel
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   // Menambahkan produk ke keranjang
   const addToCart = (product: Product) => {
     setCart((prevCart) => {
-      if (prevCart.some((item) => item.id === product.id)) {
+      const alreadyAdded = prevCart.some((item) => item.id === product.id);
+
+      if (alreadyAdded) {
         return prevCart;
       }
 
@@ -20,11 +26,18 @@ function App() {
     });
   };
 
+  // Menghapus produk dari keranjang
+  const removeFromCart = (id: number) => {
+    setCart((prevCart) => prevCart.filter((product) => product.id !== id));
+  };
+
   return (
     <div className="min-h-screen bg-background">
-      <Navbar cartCount={cart.length} />
+      {/* Navbar */}
+      <Navbar cartCount={cart.length} onOpenCart={() => setIsCartOpen(true)} />
 
       <main>
+        {/* Hero */}
         <Hero />
 
         {/* Product Section */}
@@ -57,6 +70,14 @@ function App() {
           </div>
         </section>
       </main>
+
+      {/* Shopping Cart */}
+      <Cart
+        cart={cart}
+        isOpen={isCartOpen}
+        onClose={() => setIsCartOpen(false)}
+        onRemove={removeFromCart}
+      />
     </div>
   );
 }

@@ -2,9 +2,10 @@ import { ShoppingBag } from "lucide-react";
 
 type NavbarProps = {
   cartCount: number;
+  onOpenCart: () => void;
 };
 
-function Navbar({ cartCount }: NavbarProps) {
+function Navbar({ cartCount, onOpenCart }: NavbarProps) {
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({
       behavior: "smooth",
@@ -59,13 +60,18 @@ function Navbar({ cartCount }: NavbarProps) {
         </div>
 
         {/* Shopping Cart */}
-        <div className="flex items-center gap-3 justify-self-end">
+        <button
+          type="button"
+          onClick={onOpenCart}
+          aria-label={`Open shopping cart with ${cartCount} items`}
+          className="flex items-center gap-3 justify-self-end"
+        >
           <ShoppingBag size={19} strokeWidth={1.7} />
 
           <span className="flex h-6 w-6 items-center justify-center rounded-full bg-primary text-xs text-white">
             {cartCount}
           </span>
-        </div>
+        </button>
       </nav>
     </header>
   );
