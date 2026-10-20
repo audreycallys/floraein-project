@@ -5,12 +5,13 @@ function App() {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
+
       <main>
         <Hero />
 
         <section
           id="flowers"
-          className="mx-auto max-w-6xl border-t border-border px-6 py-12"
+          className="mx-auto max-w-7xl border-t border-border px-6 py-12"
         >
           <p className="text-xs font-semibold uppercase tracking-widest text-primary">
             Our Selection
