@@ -2,7 +2,7 @@ function App() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-6">
       <div className="text-center">
-        <h1 className="text-5xl font-bold text-primary">FLORAEIN</h1>
+        <h1 className="text-5xl font-bold text-primary">Floraein - Flower Shop</h1>
 
         <p className="mt-3 text-muted">Make every moment bloom.</p>
 
