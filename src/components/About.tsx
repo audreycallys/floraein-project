@@ -1,7 +1,7 @@
 function About() {
   return (
-    <section id="about" className="bg-[#FAFAFA] px-6 py-24 sm:py-28">
-      <div className="mx-auto max-w-7xl">
+    <section id="about" className="bg-[#FAFAFA] py-24 sm:py-28">
+      <div className="mx-auto max-w-7xl px-6">
         {/* Section Label */}
         <p className="text-xs font-semibold uppercase tracking-widest text-primary">
           01 / Our Story
