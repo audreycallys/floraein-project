@@ -25,7 +25,7 @@ function Hero() {
           A Floral Studio for Every Season
         </p>
 
-        <h1 className="font-heading text-6xl font-medium leading-[0.95] text-foreground sm:text-7xl lg:text-[86px]">
+        <h1 className="font-heading text-5xl font-medium leading-[1.05] text-foreground sm:text-7xl lg:text-[86px] lg:leading-[0.95]">
           Flowers for
           <br />
           <span className="italic text-primary">every moment.</span>
@@ -65,18 +65,18 @@ function Hero() {
 
       {/* Flower Showcase */}
       <div className="relative mt-7 pt-5 pb-8">
-        {/* Full Width Background Arch */}
+        {/* Background Arch */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute bottom-0 left-1/2 h-[520px] w-[115%] -translate-x-1/2 translate-y-[310px] rounded-t-[50%] bg-plum"
+          className="pointer-events-none absolute bottom-0 left-1/2 h-[260px] w-[150%] -translate-x-1/2 translate-y-[150px] rounded-t-[50%] bg-plum sm:h-[360px] sm:w-[125%] sm:translate-y-[190px] lg:h-[520px] lg:w-[115%] lg:translate-y-[310px]"
         />
 
         {/* Flower Gallery */}
-        <div className="relative z-10 mx-auto grid max-w-6xl grid-cols-2 gap-5 px-6 sm:flex sm:justify-center sm:gap-9 sm:translate-y-8">
+        <div className="relative z-10 mx-auto grid max-w-6xl grid-cols-2 gap-4 px-6 sm:grid-cols-4 sm:gap-4 lg:flex lg:justify-center lg:gap-9 lg:translate-y-8">
           {flowers.map((flower) => (
             <div
               key={flower.image}
-              className="group relative min-w-0 overflow-hidden rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-xl sm:w-[210px] sm:shrink-0"
+              className="group relative min-w-0 overflow-hidden rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-xl lg:w-[210px] lg:shrink-0"
             >
               <img
                 src={`/images/flowers/${flower.image}`}
