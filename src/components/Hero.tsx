@@ -1,39 +1,43 @@
-import { ArrowUpRight, ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 
 function Hero() {
-  const scrollToFlowers = () => {
-    document.getElementById("flowers")?.scrollIntoView({
+  const scrollToSection = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({
       behavior: "smooth",
     });
   };
 
+  const flowers = [
+    { image: "flower-1.png", name: "Colorful Blooms" },
+    { image: "flower-2.png", name: "Soft Petals" },
+    { image: "flower-4.png", name: "Pastel Blue" },
+    { image: "flower-5.png", name: "Spring Garden" },
+  ];
+
   return (
-    <section id="home" className="mx-auto max-w-7xl px-6 py-8">
-      <div className="rounded-3xl bg-[#F5F5F5] px-6 pt-20 pb-16 text-center sm:px-12 lg:pt-24">
-        {/* Section Label */}
+    <section id="home" className="w-full overflow-hidden bg-white">
+      {/* Hero Content */}
+      <div className="relative z-10 mx-auto max-w-7xl px-6 pt-14 text-center sm:pt-16">
         <p className="mb-5 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
           A Floral Studio for Every Season
         </p>
 
-        {/* Heading */}
         <h1 className="font-heading text-6xl font-medium leading-[0.95] text-foreground sm:text-7xl lg:text-[86px]">
           Flowers for
           <br />
           <span className="italic text-primary">every moment.</span>
         </h1>
 
-        {/* Description */}
         <p className="mx-auto mt-6 max-w-md text-sm leading-7 text-muted">
           Thoughtfully arranged blooms for the moments that matter most.
         </p>
 
-        {/* Hero Actions */}
+        {/* Hero Buttons */}
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-          {/* Primary Button */}
           <button
             type="button"
-            onClick={scrollToFlowers}
-            className="group inline-flex items-center gap-3 rounded-full bg-primary px-7 py-3.5 text-sm font-medium text-white transition-all duration-200 hover:bg-primary-hover"
+            onClick={() => scrollToSection("flowers")}
+            className="group inline-flex items-center gap-3 rounded-full bg-primary px-7 py-3.5 text-sm font-medium text-white transition-colors hover:bg-primary-hover"
           >
             Explore Flowers
             <ArrowUpRight
@@ -42,15 +46,10 @@ function Hero() {
             />
           </button>
 
-          {/* Secondary Button */}
           <button
             type="button"
-            onClick={() =>
-              document.getElementById("about")?.scrollIntoView({
-                behavior: "smooth",
-              })
-            }
-            className="group inline-flex items-center gap-3 rounded-full border border-border bg-white px-7 py-3.5 text-sm font-medium text-foreground transition-all duration-200 hover:border-primary hover:text-primary"
+            onClick={() => scrollToSection("about")}
+            className="group inline-flex items-center gap-3 rounded-full border border-border bg-white px-7 py-3.5 text-sm font-medium text-foreground transition-colors hover:border-primary hover:text-primary"
           >
             About Us
             <ArrowRight
@@ -58,6 +57,42 @@ function Hero() {
               className="transition-transform duration-200 group-hover:translate-x-1"
             />
           </button>
+        </div>
+      </div>
+
+      {/* Flower Showcase */}
+      <div className="relative mt-7 pt-5 pb-8">
+        {/* Full Width Background Arch */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute bottom-0 left-1/2 h-[520px] w-[115%] -translate-x-1/2 translate-y-[310px] rounded-t-[50%] bg-plum"
+        />
+
+        {/* Flower Gallery */}
+        <div className="relative z-10 mx-auto grid max-w-6xl grid-cols-2 gap-5 px-6 sm:flex sm:justify-center sm:gap-9">
+          {flowers.map((flower) => (
+            <div
+              key={flower.image}
+              className="group relative min-w-0 overflow-hidden rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-xl sm:w-[210px] sm:shrink-0"
+            >
+              <img
+                src={`/images/${flower.image}`}
+                alt={flower.name}
+                className="aspect-[3/4] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+
+              {/* Hover Overlay */}
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/65 to-transparent px-4 pb-5 pt-12 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                <p className="text-left text-sm font-medium text-white">
+                  {flower.name}
+                </p>
+
+                <p className="mt-1 text-left text-xs text-white/80">
+                  Our Collection
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
