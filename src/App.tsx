@@ -6,6 +6,7 @@ import Cart from "./components/Cart";
 import { products } from "./data/products";
 import type { Product } from "./data/products";
 import About from "./components/About";
+import Footer from "./components/Footer";
 
 function App() {
   // State keranjang
@@ -75,10 +76,13 @@ function App() {
             ))}
           </div>
         </section>
-        
+
         {/* About Section */}
         <About />
       </main>
+
+      {/* Footer */}
+      <Footer />
 
       {/* Shopping Cart */}
       <Cart
