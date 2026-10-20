@@ -31,6 +31,11 @@ function App() {
     setCart((prevCart) => prevCart.filter((product) => product.id !== id));
   };
 
+  // Menghapus semua produk dari keranjang
+  const clearCart = () => {
+    setCart([]);
+  };
+
   return (
     <div className="min-h-screen bg-background">
       {/* Navbar */}
@@ -77,6 +82,7 @@ function App() {
         isOpen={isCartOpen}
         onClose={() => setIsCartOpen(false)}
         onRemove={removeFromCart}
+        onClear={clearCart}
       />
     </div>
   );

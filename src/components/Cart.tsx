@@ -6,9 +6,10 @@ type CartProps = {
   isOpen: boolean;
   onClose: () => void;
   onRemove: (id: number) => void;
+  onClear: () => void;
 };
 
-function Cart({ cart, isOpen, onClose, onRemove }: CartProps) {
+function Cart({ cart, isOpen, onClose, onRemove, onClear }: CartProps) {
   // Menghitung total harga
   const totalPrice = cart.reduce((total, product) => total + product.price, 0);
 
@@ -47,14 +48,29 @@ function Cart({ cart, isOpen, onClose, onRemove }: CartProps) {
             <p className="mt-1 text-xs text-muted">Your selected bouquets</p>
           </div>
 
-          <button
-            type="button"
-            onClick={onClose}
-            aria-label="Close cart"
-            className="rounded-full p-2 transition-colors hover:bg-surface"
-          >
-            <X size={20} />
-          </button>
+          <div className="flex items-center gap-3">
+            {/* Clear All */}
+            {cart.length > 0 && (
+              <button
+                type="button"
+                onClick={onClear}
+                className="flex items-center gap-1.5 rounded-full px-3 py-2 text-xs font-medium text-primary transition-colors hover:bg-primary-light"
+              >
+                <Trash2 size={15} />
+                Clear All
+              </button>
+            )}
+
+            {/* Close Cart */}
+            <button
+              type="button"
+              onClick={onClose}
+              aria-label="Close cart"
+              className="rounded-full p-2 transition-colors hover:bg-surface"
+            >
+              <X size={20} />
+            </button>
+          </div>
         </div>
 
         {/* Cart Items */}
