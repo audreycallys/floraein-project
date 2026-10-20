@@ -4,7 +4,7 @@ function Hero() {
   };
 
   return (
-    <section className="mx-auto grid max-w-6xl items-center gap-14 px-6 py-20 lg:grid-cols-2 lg:gap-24">
+    <section className="mx-auto grid max-w-7xl items-center gap-12 px-6 py-16 lg:grid-cols-2 lg:gap-16">
       <div>
         <p className="mb-6 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
           Fresh Flowers Collection
@@ -39,7 +39,7 @@ function Hero() {
         <img
           src="/images/hero-flower.jpg"
           alt="Beautiful floral arrangement"
-          className="h-[480px] w-full object-cover lg:h-[520px]"
+          className="aspect-[4/3] w-full rounded-2xl object-cover"
         />
 
         <div className="absolute right-5 bottom-5 text-right font-heading text-base italic text-white drop-shadow-md">
@@ -53,4 +53,3 @@ function Hero() {
 }
 
 export default Hero;
-s;
