@@ -1,5 +1,3 @@
-import { Heart } from "lucide-react";
-
 function Footer() {
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({
