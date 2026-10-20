@@ -1,46 +1,64 @@
+import { ArrowUpRight, ArrowRight } from "lucide-react";
+
 function Hero() {
   const scrollToFlowers = () => {
-    document.getElementById("flowers")?.scrollIntoView({ behavior: "smooth" });
+    document.getElementById("flowers")?.scrollIntoView({
+      behavior: "smooth",
+    });
   };
 
   return (
-    <section className="mx-auto grid max-w-7xl items-center gap-12 px-6 py-16 lg:grid-cols-2 lg:gap-16">
-      <div>
-        <p className="mb-6 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
-          Fresh Flowers Collection
+    <section id="home" className="mx-auto max-w-7xl px-6 py-8">
+      <div className="rounded-3xl bg-[#F5F5F5] px-6 pt-20 pb-16 text-center sm:px-12 lg:pt-24">
+        {/* Section Label */}
+        <p className="mb-5 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+          A Floral Studio for Every Season
         </p>
 
-        <h1 className="font-heading text-6xl leading-[0.95] font-medium tracking-tight text-foreground sm:text-7xl lg:text-[86px]">
-          Beautiful
+        {/* Heading */}
+        <h1 className="font-heading text-6xl font-medium leading-[0.95] text-foreground sm:text-7xl lg:text-[86px]">
+          Flowers for
           <br />
-          flowers,
-          <br />
-          <span className="italic text-primary">
-            beautiful
-            <br />
-            moments.
-          </span>
+          <span className="italic text-primary">every moment.</span>
         </h1>
 
-        <p className="mt-8 max-w-sm text-sm leading-7 text-muted">
-          Discover thoughtfully arranged bouquets for every special occasion.
+        {/* Description */}
+        <p className="mx-auto mt-6 max-w-md text-sm leading-7 text-muted">
+          Thoughtfully arranged blooms for the moments that matter most.
         </p>
 
-        <button
-          type="button"
-          onClick={scrollToFlowers}
-          className="mt-7 bg-primary px-7 py-4 text-xs font-semibold uppercase tracking-widest text-white transition-colors hover:bg-primary-hover"
-        >
-          Explore Flowers ↗
-        </button>
-      </div>
+        {/* Hero Actions */}
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+          {/* Primary Button */}
+          <button
+            type="button"
+            onClick={scrollToFlowers}
+            className="group inline-flex items-center gap-3 rounded-full bg-primary px-7 py-3.5 text-sm font-medium text-white transition-all duration-200 hover:bg-primary-hover"
+          >
+            Explore Flowers
+            <ArrowUpRight
+              size={18}
+              className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            />
+          </button>
 
-      <div>
-        <img
-          src="/images/hero-flower.jpg"
-          alt="Beautiful floral arrangement"
-          className="aspect-[4/3] w-full rounded-2xl object-cover"
-        />
+          {/* Secondary Button */}
+          <button
+            type="button"
+            onClick={() =>
+              document.getElementById("about")?.scrollIntoView({
+                behavior: "smooth",
+              })
+            }
+            className="group inline-flex items-center gap-3 rounded-full border border-border bg-white px-7 py-3.5 text-sm font-medium text-foreground transition-all duration-200 hover:border-primary hover:text-primary"
+          >
+            About Us
+            <ArrowRight
+              size={18}
+              className="transition-transform duration-200 group-hover:translate-x-1"
+            />
+          </button>
+        </div>
       </div>
     </section>
   );
