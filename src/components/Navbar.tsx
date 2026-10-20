@@ -1,6 +1,10 @@
 import { ShoppingBag } from "lucide-react";
 
-function Navbar() {
+type NavbarProps = {
+  cartCount: number;
+};
+
+function Navbar({ cartCount }: NavbarProps) {
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({
       behavior: "smooth",
@@ -8,13 +12,13 @@ function Navbar() {
   };
 
   return (
-    <header className="border-b border-border bg-white">
+    <header className="sticky top-0 z-50 border-b border-border bg-white">
       <nav className="mx-auto grid h-20 max-w-7xl grid-cols-3 items-center px-6">
         {/* Brand */}
         <button
           type="button"
           onClick={() => scrollToSection("home")}
-          className="flex items-center gap-4 justify-self-start"
+          className="flex items-center gap-2 justify-self-start"
         >
           <img
             src="/images/logo.png"
@@ -54,18 +58,14 @@ function Navbar() {
           </button>
         </div>
 
-        {/* Cart */}
-        <button
-          type="button"
-          className="flex items-center gap-3 justify-self-end"
-          aria-label="Shopping cart"
-        >
+        {/* Shopping Cart */}
+        <div className="flex items-center gap-3 justify-self-end">
           <ShoppingBag size={19} strokeWidth={1.7} />
 
           <span className="flex h-6 w-6 items-center justify-center rounded-full bg-primary text-xs text-white">
-            0
+            {cartCount}
           </span>
-        </button>
+        </div>
       </nav>
     </header>
   );
